@@ -1,18 +1,14 @@
 package com.techbrothers3.test;
 
 
-import com.techbrothers3.test.Model.CreateUser;
+import com.techbrothers3.test.Model.QuizUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.*;
 import com.techbrothers3.test.Model.Question;
 import com.techbrothers3.test.Repository.QuestionRepository;
 import com.techbrothers3.test.Repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Arrays;
 
@@ -39,7 +35,7 @@ public class QuizAppApplication implements CommandLineRunner {
 		));
 
 		// seeding a single user
-		userRepository.save(new CreateUser("testUser"));
+		userRepository.save(new QuizUser("testUser"));
 	}
 
 }

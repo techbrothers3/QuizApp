@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 
 
 @Entity
-public class CreateUser {
+public class QuizUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -17,9 +17,9 @@ public class CreateUser {
     private int correctAnswers = 0;
     private int incorrectAnswers = 0;
 
-    public CreateUser() {}
+    public QuizUser() {}
 
-    public CreateUser(String username) {
+    public QuizUser(String username) {
         this.username = username;
     }
     //getters

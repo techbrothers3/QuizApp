@@ -1,6 +1,6 @@
 package com.techbrothers3.test.Controller;
 
-import com.techbrothers3.test.Model.CreateUser;
+import com.techbrothers3.test.Model.QuizUser;
 import com.techbrothers3.test.Model.Question;
 import com.techbrothers3.test.Repository.QuestionRepository;
 import com.techbrothers3.test.Repository.UserRepository;
@@ -47,7 +47,7 @@ public class QuizController {
             return "Question Not Found";
         }
         Question question = optionalQuestion.get();
-        CreateUser user = userRepository.findByUsername(username).orElseThrow(()-> new RuntimeException("User not Found"));
+        QuizUser user = userRepository.findByUsername(username).orElseThrow(()-> new RuntimeException("User not Found"));
 
         if(question.getCorrectAnswer().equalsIgnoreCase(answer)) {
             user.incrementCorrect();
@@ -62,7 +62,7 @@ public class QuizController {
 
     @GetMapping("/stats")
     public Map<String,Integer> getUserStats(@RequestParam String username) {
-        CreateUser user = userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("User not found."));
+        QuizUser user = userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("User not found."));
         Map<String,Integer> stats = new HashMap<>();
         stats.put("Total Answered", user.getTotalAnswered());
         stats.put("Correct Answers", user.getCorrectAnswers());
